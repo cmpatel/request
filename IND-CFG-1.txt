@@ -1,0 +1,8675 @@
+("##objausr-2016-02-17-I1"
+	:AdminInfo (
+		:chkpf_uid ("{36C5876C-424C-4652-AB0E-537F5BB0F116}")
+		:ClassName (firewall_policy)
+		:table (fw_policies)
+		:LastModified (
+			:Time ("Wed Feb 17 12:23:25 2016")
+			:last_modified_utc (1455711805)
+			:By (iand)
+			:From (PC-IAND-T430)
+		)
+		:icon ("Applications/application_fw1")
+	)
+	:default (0)
+	:globally_enforced (true)
+	:queries ()
+	:queries_adtr ()
+	:collection (ReferenceObject
+		:Name (objausr-2016-02-17-I1)
+		:Table (policies_collections)
+		:Uid ("{B8C85BE6-171C-4FA4-9012-697287D66B19}")
+	)
+	:rule_adtr (
+		:AdminInfo (
+			:chkpf_uid ("{5AF16D7C-8483-40CB-9604-086D04768EAA}")
+			:ClassName (address_translation_rule)
+		)
+		:disabled (false)
+		:dst_adtr (
+			: objaba-cust-pub-ips
+		)
+		:global_location (middle)
+		:install (
+			: objaba-fw
+		)
+		:name ()
+		:rule_block_number (1)
+		:services_adtr (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src_adtr (
+			: ba00ut01
+		)
+		:dst_adtr_translated (
+			:AdminInfo (
+				:chkpf_uid ("{62E51188-D2A9-4E51-8E9A-9075EA2436FE}")
+				:ClassName (translate_static)
+			)
+			:adtr_method (adtr_method_static)
+			: (Any
+				:color (Blue)
+			)
+		)
+		:services_adtr_translated (
+			:AdminInfo (
+				:chkpf_uid ("{97DA64E9-FC56-4606-A622-FF688817142F}")
+				:ClassName (service_translate)
+			)
+			:adtr_method (adtr_method_static)
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src_adtr_translated (
+			:AdminInfo (
+				:chkpf_uid ("{D183B199-A3F0-4917-BC10-255B685DDF47}")
+				:ClassName (translate_hide)
+			)
+			:adtr_method (adtr_method_hide)
+			: objaba0-NAT
+		)
+	)
+	:use_VPN_communities (false)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{ADE23D7A-EFE5-4688-ACCA-C0E2714C4486}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{23D92788-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EAAEC2-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23D936A6-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: masto
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23D9448E-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23D951B8-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: FireWall1
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23D9604A-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba-fw
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CA9158C-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (1)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{3CF6846D-915D-4E5C-A77F-B5EE5421BAA8}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (drop
+				:AdminInfo (
+					:chkpf_uid ("{23D9C68E-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (drop_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EABEA8-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro ()
+				:type (drop)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23D9D4F8-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23D9E2D6-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23D9F00A-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23D9FEA6-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba-fw
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CA98EEA-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (2)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{6DA0942C-DBF8-4D76-A289-B1C1D5DBB50D}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{23DA6472-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EACE48-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23DA7426-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-fw
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23DAB21A-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23DABFA8-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: FireWall1
+			: FW1-Access
+			: http
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23DAD010-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: Fw-Access-Group
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAA1888-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (3)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{269BF1C6-E5B9-43FE-88D6-9FA4B7E9AA91}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{D0C8CD85-12348-4983-BE7B-3171A678924F}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{73B67987-0C8E-445E-B670-9CBB34179883}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{10C15120-03E1-41EF-8C49-9F378A837FB2}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-fw
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{D1351BD6-599B-46E4-9DF5-0B2EBFA3B0BA}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{252324CD-323B-4FA6-A8BE-F50EC3CF180B}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: snmp-read
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{70D48D67-CED8-4BB6-958B-A49F2AAC8561}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: MWatch_servers
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{D25C57EA-6839-4EF0-8065-57EEC86FAD7C}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (4)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{37C7E57B-3681-4E8D-BEBC-E3F7B3079861}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{F7084254-7817-4283-980D-008D40A341E8}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EADE4C-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{952FA499-2287-4FE4-887D-FA62A6B43F4A}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{0368FC5C-40ED-4BC8-A7BE-CBBA072F1E48}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{063070D5-794B-4D4C-B5B3-D8A81DD2BB94}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: X11
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{89459FA2-9053-4E9B-88D6-F1523BE72CFC}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba0
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAA939E-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (5)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{26C3206C-F4BD-4ECD-AE2B-6A29EB7B5F28}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{23DB3992-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EAEDE2-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23DB4892-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23DB5670-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23DB63AE-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23DB7236-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba0
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAB0EAA-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (6)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{9F49F895-3043-48F1-A305-91F414751F81}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{6C5107A1-C255-4B90-12335-2B5FCA2B36F5}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EAFDA0-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{F441CDF3-0167-40BC-9AF5-C8E6DCA9A787}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-vpn-mg
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{0F033C3E-F575-40A2-8BD0-0F389E50B31D}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{7394627E-8D30-4090-AFEE-CD9672FEF8F7}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{4866EB80-5479-4304-AA81-85D56018CA98}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: cssun3
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{3BBCE42E-0ED9-464B-9CAD-67750A726544}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (7)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{DE16CF99-D7A6-4177-8CBB-2F972C0DD5DD}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{25DBD606-574C-487A-BB51-ACCE14AB3BC2}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EB0D86-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{054D6804-8B2E-41B7-96D9-F24B70A5F47D}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: cssun3
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{A2FF8435-39C4-4477-964C-8DAE068D908D}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{AB451FEA-84B1-4C9E-91C2-3563B9ED627F}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{38897D60-F0AC-45DA-944F-E02A98B8CEFA}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba-vpn-mg
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{CC7BF6FE-FEC0-4C54-A8C3-0018B1C82D61}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (8)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{7B3258DD-3144-4041-B658-2B6CBAA685E8}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{2ADA51A9-222B-4AF7-874F-3989BEC7AD01}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EB1D76-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{B9D036A9-2D69-4274-BD91-6277285DBE6E}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba00na01
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{5AA1C121-95DE-4E47-B70A-16F39D9431B2}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{68440E01-3892-472A-1237B-A6EC51108590}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: snmp-read
+			: tcp-4092
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{C7BDEC7C-18B2-4F88-8E52-453D794D57C3}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: sjbb02
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{D13699D2-7CFB-4D88-9671-ADEE114660A3}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (9)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{8D254FAE-37DF-4EBB-9483-8488441979A9}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{23DC86E4-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EB2D8E-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23DC9602-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba0
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23DCA444-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23DCB196-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23DCC046-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: chm0-group
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAB8E70-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (10)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{51EC512A-AFBE-4E6A-BF67-AD2425148E8E}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{EF957D9F-83D3-4B6F-8E5F-82F0E0D1D1C4}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{47CA6449-1C4D-40C5-AC72-67EAE2C4BD75}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{65112016-5108-4A06-AADF-DB3DFCFDF10B}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-ctx-lic
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{ACBD3828-BE7C-4987-AD98-A5685CC34067}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{3AB1FD11-A336-4DED-BD9D-31B47E510A2D}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-5499
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{FDF94C45-0986-43FF-A5FF-D4DC79B86362}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objasj0
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{CCC49241-A485-4A4F-9439-F8C5EB8C73AF}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (11)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{085FAC33-CA50-4927-90A8-F07C68B3BADE}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{319FBAA8-6031-4E30-ADC0-086CEA75B1E1}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EB3CF2-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{68EBC2FE-F0E1-4EAD-8D89-8B01F9CF12C3}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{2794F93E-E75B-4293-BE30-84611957A59F}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{E4A5591B-4B69-467E-873C-8A1C5FDA8EA0}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: X11
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{C1F9FFFD-873A-4AF7-91D2-7DA9C55D56EA}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: chmsite-group
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAC07EC-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (12)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{133B3BA0-09A8-4A17-A0E4-ABFE08D9110E}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{23DD29FA-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EB4CE2-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23DD3954-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23DD4796-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23DD54E8-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23DD637A-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: chmsite-group
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAC81FE-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (13)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{5B9A2B66-09F2-42B1-97F1-992BFCB9ADF6}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{DF676A33-938D-4470-B6BA-733E69DDAFEB}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EB6CB8-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{7A2F9DD1-642A-4700-80EF-67E21C984F97}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: COMPA-internal
+			: chmsite-group
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{D809B385-41E6-4CBC-8B8B-89D2F3073AE7}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{BE6502B1-410C-4BD5-BD2D-E34EC0F98CA0}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: X11
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{CF6E1DA8-ED6C-42C8-B38A-609C58A3A6D2}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAD0322-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (14)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{286E7302-3C62-425F-83A2-F93A649BB88C}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{0F20EEA4-8C61-4271-BFA9-F6DFFA60E1CC}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EB7C62-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{C127BADC-6E69-482F-8263-1D4533487CE8}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: chmsite-group
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{6F68E3D0-5F72-429D-911A-726CDB5BE567}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{A6B3E903-5D4E-4085-9449-39B1923FF233}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{C72ECEAE-A243-4F15-8048-C6D230BC09C5}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAD7F46-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (15)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{49165D19-12304-446A-BD67-A4CB8D2966C2}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{4F057FAB-5901-4707-B59D-94AECF35322C}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EB8C2A-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{5BF1BA59-C089-4BA6-92F6-B5ED052131E4}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ("not in")
+			: objaba-net
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{82D501A2-3853-4FB3-81CE-70C04D49D81A}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{3A2CCEFA-EDDA-4174-9C83-E3BF10012A7B}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{65356DCA-6897-4FEC-92DB-CEDEB6D71826}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CADF8AE-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (16)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{14329552-69ED-42F7-86B8-4534B0E39E00}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{C2DD7475-6646-4A6A-AB9B-AE33682D6418}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{46CA3941-D926-4B07-8BF8-B81586DCB26A}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{DD0B852D-123D5-44C2-A2C0-F5CCEB8883E6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: clvclo31
+			: clvclx03
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{579300B5-E88A-4E61-8894-14406A71F2DD}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{4159625D-B830-40CA-B47A-975E01BD64A9}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: TCP-10025
+			: TCP-10023
+			: TCP-28400
+			: TCP-6000
+			: tcp6001
+			: tcp-8016-8017
+			: tcp-10031
+			: tcp-8092-8093
+			: tcp-8132-8133
+			: tcp-8198-8199
+			: tcp-8082-8083
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{2F9DB353-C5B8-44B3-A5FF-25D537536F35}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: tsmc28hpm
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{66BA377B-2A17-4D61-82EB-8A13EACAEE4B}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (17)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{6BC3FBFA-3A0E-4ABC-9352-F5A57E673AC2}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{187106D9-D8C3-4767-12397-F562DB8DE133}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{EEE54519-2CC0-49DF-B186-4CA156F8E5BA}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{BF3A7FA0-75E5-49CB-AF7B-FDFAEB5BCB2D}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: crvcut05
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{D67B9A04-BD18-4590-9002-033D759D9C87}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{14C5DC67-20DF-41C5-A1B9-C8AAB5AABEBC}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-8056-8057
+			: tcp-8074-8075
+			: tcp-8190-8191
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{C4692D25-F3FC-4181-8616-F4DC183A8F97}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: tsmc28hpm
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{4CC95DFF-C0F7-4103-8885-158227E3B901}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (18)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{865E27B3-7190-4C71-B808-E54E0770038D}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{C3135A88-E6DD-4889-ACE2-0E0E23EF8048}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{5F830B31-30D1-4158-BF49-F928ABFE5FE0}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{B0563DF0-246D-4055-BCBD-AC7C34E1F48B}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: crvcut05
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{FF5119F2-EADF-4024-833C-C89CCEF5640B}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{00CE6916-96FD-45EB-96F1-0D87C7B0B594}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-8074-8075
+			: tcp-8190-8191
+			: tcp-8186-8187
+			: tcp-8202-8203
+			: tcp-8262-8263
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{993A4ADF-E672-4192-8F9A-0C821413DD7A}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba6
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{BDFE502E-4BDC-47AA-8B3F-D330B4A811AB}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (19)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{88210ECC-2AAC-4ECA-A669-85D1C000E57E}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{E09848F8-2F63-4410-B36B-3EC3F6BC948F}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{16612F75-E363-4E00-B8A8-36AF61234E2D}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{F9384667-6C40-403A-BEFC-A5E19A6FC978}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: clvclo31
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{1A1BDCA3-E619-4E57-955E-95009652416F}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{7E2A460E-5A3C-4C57-93C5-BB376B715B37}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-8008-8009
+			: tcp-8166-8167
+			: TCP-8010
+			: tcp-8011
+			: tcp-8130-8131
+			: tcp-8232-8233
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{3E280AC0-C94E-46C3-972E-76F5DB90732E}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba6
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{68BD950F-0EC4-4ECA-932D-AE97D89A6F57}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (20)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{87E67D36-BD05-4C1A-8F43-0F0DEFFB66E7}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{EFE19D44-B8B3-4D19-A0C9-2254EDA9B094}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EB9BB6-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{715F28E1-2DE6-4042-97DF-B4EF1EAF5F36}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ntp-bnglr
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{E70108B1-BE89-4A4A-9A30-D7026DD0114F}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{C9FCB95D-EED6-47DA-B841-B122E3A165AA}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ntp
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{2EC7EA06-8E1A-466D-BE7E-2B889505928A}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba3750-core
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{1B244E7C-AC6D-452F-86F4-EAB7AE2F4E70}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (21)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{708B3728-0545-470D-8D79-B202C361BA14}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{4A6ACE25-FB89-421F-BD9B-8287C424A2D6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EBAB92-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{A001BF85-3271-4486-9552-89589E726822}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-ctx-lic
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{358D96F7-4599-496D-86E9-112BC2DBF307}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{2956DBDB-50A7-4D74-8693-08D218C798E3}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp27001
+			: tcp27000
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{5062C8B8-C095-4ACC-BFE9-FC893938C294}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba-ctx-grp
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{A87D23B2-5D1E-4397-A100-5E48D4E0E400}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (22)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{6004D1A0-C139-4C1F-B876-8A902CE4E2D8}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{6435CFA1-3EED-4D07-A186-0E2ABDDBC94D}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{D6363775-C5D9-457C-B458-DAF2FBD669E6}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{9C1C8823-0925-4998-863A-B392E6E4A17C}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: splunk-ufwd-ind
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{B907C982-0EA1-4A7B-8D93-AC3A261F32FF}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{717F4514-B2FF-46C3-B92C-4E1F3923D41A}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: syslog
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{A725F2D8-03AD-4229-BEBF-9556C3EF7402}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: bamout01
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{194CB823-34B0-4DB8-A7DC-DA6F096324A0}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (23)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{B1A2CDB4-E449-4F9B-97EA-EE1FA9F054A3}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{230B8E10-A28A-4834-86DA-CC0A559F794C}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{013FAC2C-CC80-44B5-B21C-3CE632EE9D7C}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{39B2163D-F1A2-4883-8FB0-1CF2DF4FB221}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-ctx-lic
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{F99D8F63-5E26-44AE-8129-C831E8CE0400}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:name ("##EoD License")
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{B268F029-7FB8-484E-9E63-A3B32A095DD8}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-5499
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{9EF9DF24-03C8-4DDA-B53C-79CFDE59C766}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba-eod-grp
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{2C26FADB-2238-4820-BEE1-85AA5BEC857B}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (24)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{EBDE80E9-AA9F-4505-8CDA-57CE8DC4C5DD}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{93F752CD-D2BF-4F2F-813B-8281B97EACE6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EBBB96-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{5DFD53BB-05E5-484C-9B99-2E206E0A446E}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-ctx-lic
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{8A23AB78-35F4-4D25-ADED-09BCF4143A57}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:name ("##CDS License")
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{B9BC9DE3-7244-452F-8FB2-8537A9BFFB5D}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: TCP-5280-5281
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{766D92B2-65FB-4F2A-AC71-E0B907E9E33A}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba-net
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{F5CABCEC-B06B-478B-848D-281ADF8DFF3F}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (25)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{4F0C125F-3B16-4E10-842E-04F381AE77CC}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (drop
+				:AdminInfo (
+					:chkpf_uid ("{488B324A-3CD3-4D22-86B2-00DEE83AB3CC}")
+					:ClassName (drop_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EBCB7C-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro ()
+				:type (drop)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{0808B491-746E-41CB-8990-3D76EFFBD8BB}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{300D46B1-53CC-490F-B9E4-8EA2983FF12B}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{F3F673DE-7D4B-4896-AC85-35811AF0B15F}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{75795BFE-DD27-4566-A1F4-29A284078755}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba-ctx-lic
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{FC6BC8EF-1B1A-4B38-91FE-639BDD4A8A29}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (26)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{C5F3E4DC-C8AD-4464-8F65-FC7E25FE0654}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{6EFF2EF3-4A01-4532-8E95-000435E1E03D}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{A50B6518-97C0-4D54-8FD5-C65271EF6563}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{C5F6CB3A-532C-4DD5-B095-890FBFABCB66}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba06vs01
+			: bavcvs01
+			: ba07lo07
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{E16BFEE7-C5DF-485D-B167-44E50C705C54}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{09302434-D396-4580-8336-C18C99917FB8}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ssh
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{8BECFD9D-4B09-483E-B08D-17AA3A71AE98}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: srv-sjpam1
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{75E48D07-2822-4D5D-86D2-B2127FEE4DE7}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (27)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{E8680E69-89E8-4A0B-85E2-B9461405F2C2}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{3A0E8AC5-7BA0-4960-9D2B-D87348CCF346}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EC3B3E-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{D5834951-659B-4BDE-B7D9-76D3042DDA47}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objasjchm6
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{48CF54BB-8EFB-4EE0-B47C-708D56DB8F30}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{F91A713C-63A3-4899-9C7F-6F69348BF802}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ssh
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{9C6C9F39-7621-4EA2-B7A2-6E7D7325DAC3}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba4
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{31A65202-771A-4370-BEEE-51045AD34479}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (28)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{081B95B0-C86D-4F9A-9507-83D079EE421C}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{741C908A-AAE1-4981-99FA-D14E237F7296}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EC4B38-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{4CAD5430-C8EB-4E86-8539-CEB1E2AE3F90}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba4
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{CC2CA58C-78E9-41EC-82F1-AA6245D1B30C}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{A12AA365-E69A-49FE-9251-C18E86879607}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ping-allow
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{762D4BE2-9180-46BF-AA04-43340FE075B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba4-dhcp-demo
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{20494656-19B8-4AA3-8575-1E31C0031C1F}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (29)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{292305F9-5ADB-4938-9BCA-05E569727D55}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{BE148FAA-23C5-4498-90E1-A3277F34FC16}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EC5B1E-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{69454254-C66A-488F-9E41-E38D4553F72D}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba5
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{61EF4054-0857-48BF-9C4B-99C26782D489}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{6B3FF4FC-F413-4CC9-92C2-F5EED52C04EC}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{3166F83A-60E0-493A-A529-E7DEAEB0FB1E}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: Open-Silicon
+			: Open-Silicon-2
+			: Open-Silicon-1
+			: Open-Silicon-3
+			: Open-Silicon-4
+			: Open-Silicon-5
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{BE175698-845A-43E7-8390-5A93506334FE}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (30)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{60609B96-0246-42D3-9620-75D5F095E794}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{39C3BA39-9056-4485-8AC6-6B97BA947AB6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EC7BA8-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{DD0A95A6-2486-44FC-8B1E-81D5871CEEE8}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: Open-Silicon
+			: Open-Silicon-2
+			: Open-Silicon-1
+			: Open-Silicon-3
+			: Open-Silicon-4
+			: Open-Silicon-5
+			: Open-Silicon-wan
+			: Open-Silicon-6
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{9B76338E-37FE-45E1-ADD9-3038589E698C}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{A3B0C4FF-1F6A-4991-9FA5-61D7ABAC3233}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: cc-cust-resources
+			: ssh
+			: VNC-5970
+			: VNC-5930
+			: VNC-5940
+			: ping-allow
+			: cdslmd
+			: tcp-32787
+			: tcp-32784
+			: VNC-5920
+			: VNC-5950
+			: VNC-5960
+			: VNC_5910
+			: VNC_5980
+			: VNC_5990
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{7571C801-BFC3-4724-88D1-DC3E87DE0FBA}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba5
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{BF6DBF58-F372-4780-9D60-C84F13563C43}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (31)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{CCD57F22-4AAD-44CA-9147-EF5E08C36CCE}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{C1D9F948-358E-4005-9353-0511F9E18B77}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{5406C23A-E833-488F-9D79-CB2E832B6689}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{43A4CC92-8649-404D-B665-952FC16ED0F9}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba6
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{162D8518-99EB-407C-9CC0-AB4A3EB2CE3C}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{5C9AF385-1EE8-464C-B7B6-EA3641E8B749}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: exceed
+			: ftp
+			: ping-allow
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{DA55AD32-846E-46CF-8CA7-C933ADE6B55C}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: Sankalp-net2
+			: Sankalp-Kolkata-net
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{E8B53510-F0A8-491D-88FC-FC352281D2B4}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (32)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{B42B054B-9D2F-448B-BB5E-A2E91EC89BDE}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{5E8137D6-A38D-4054-AF3A-60A720CD2F7B}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{293B3876-C12B-4311-8BD4-7947F29E4116}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{AE653EAF-DFD3-4A48-96FB-763D0CE108C9}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba06ut02
+			: ba06ut01
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{2864B175-7BE0-4810-AC01-BE60A7EA57D9}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{159DA7B8-06F6-4CFE-81AB-BD621393C68A}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{444D5F55-A3B5-4F64-AC65-AAF37667266E}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: Sankalp-net2
+			: Sankalp-Kolkata-net
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{5D4CD8FF-60A1-4FC0-920E-CF664BD868CC}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (33)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{9BF1FAFA-C5DE-4189-8281-2C771E4E65E4}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{6F2ED64B-6F64-46CD-8C7A-C6B518F7A1CE}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{DDF7C6F0-E594-49B8-1234E-C896A20CE857}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{1D9894DC-162F-4352-A728-510A7213625E}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba06vs01
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{AA566BC6-5655-4290-99CF-F0ACF92F301B}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{0D847475-F4A6-4617-89D5-D5C793A8F54B}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-9074-9075
+			: tcp-9190-9191
+			: tcp-9186-9187
+			: tcp-9202-9203
+			: tcp-9262-9263
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{71C01915-ECE8-4FC7-960C-A57774D45CEB}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaca
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{C07F468A-4EE7-4EC5-A71B-F1F060DC76A7}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (34)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{F429E837-A387-450D-BFB5-A1944689218A}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{CD376F8B-93C4-4918-8E9C-5F72EFC36923}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{53B7F823-CFF9-402C-A380-DFB424E791E3}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{502C5CA9-9B26-4914-9540-BCCA99390563}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba06vs01
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{3A9F39FF-874B-4D17-AAFF-064482F55A5E}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{9267753E-765D-411B-8EC8-895E1794FFA7}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-9008-9009
+			: tcp-9166-9167
+			: tcp-9010
+			: tcp-9011
+			: tcp-9130-9131
+			: tcp-9232-9233
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{344C5920-FE8A-4007-AC6F-19828593D829}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objacl
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{9AA99611-7889-4595-B293-25220679BDAA}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (35)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{8A9900CF-B6BE-420D-B443-E43D89DFA229}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{6EE1F1E1-0433-42A6-8DD3-57BB9525E189}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{9A671B03-15FD-4117-83AF-53B1ABCD9A90}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{471E1FB3-0D3D-483D-B364-367D4A578758}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba07ut01
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{4EB74DCF-3567-4C82-9CF5-5C49F484374D}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{C1F2CA00-BDC5-4B35-BB00-6D741E457875}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+			: ftp
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{0D682E8C-7B70-4E74-98F3-9F4C31A3F9B3}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba7-dhcp-silab_tech
+			: objaba7-dhcp
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{6974C841-7703-4F76-8AF3-CFF475ED73E5}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (36)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{D6470474-E6F6-45AB-AB36-8CE20C579CBE}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{A3196499-C7AD-4106-A187-7E606B2B9E98}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{EB19BFEB-04B5-498B-A812-A62FE4405250}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{8934CA66-7BD2-46BC-91BD-DA5B5DCD0938}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: noidalictp
+			: sjtplic
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{A14EFDB9-C683-49B3-A97F-D797FE1F45CC}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{07E5A842-3F83-4F60-89BF-F0E8503ABFD7}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: TCP-28400
+			: tcp-28401
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{066EAD89-732A-48EE-8EB7-4072EC0FFF83}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba7
+			: objaba6
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{29A043FA-951E-4E54-ACDE-C51CB0BE8DEB}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (37)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{B6375B97-498D-473F-AD7B-33508222C14C}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{B499256A-B4CC-4573-B38D-9521245B16D2}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4ED3E1C-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{7588DE55-10AE-4A18-93C1-1A9F3C6BC408}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba11ut01
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{806ECAE5-9086-4214-85B9-B63088A2E2EB}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{94DB3F59-5C64-42BC-9D72-031F55BB25FD}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{AAEDE6E6-0420-473E-B8C7-4D34076FA6F1}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: ba11-cust1
+			: ba11-cust2
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{A8F47E28-80D3-4C8B-BC2E-9847FA8C1743}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (38)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{5FD17CDA-D24A-4508-B827-88445A79D149}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{909CEE89-F3AB-4847-B4A0-7EDCC40AB2CB}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4ED3E1C-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{59A183A3-F932-4B29-BC4A-399EC85618B0}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba11ut01
+			: ba11-cust1
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{C5ABF0F4-63E7-43F9-964A-39173D7D5BD0}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{46403E91-36D0-4C79-B10B-908A6B23D224}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+			: ssh
+			: ping-allow
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{092E1D41-CCB4-4602-ADFF-C0D272C3FA5E}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: ba11-cust1
+			: ba11ut01
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{9411D094-3C93-4CA3-B3D0-853B2FB33546}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (39)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{B457EF92-E7B7-46CB-99ED-97586ACE15B3}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{0CC6B30E-0B27-4020-980B-38700AB967D2}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4ED3E1C-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{FB37B815-F939-426D-966D-8C54B4E7CF54}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba11-cust-license-1
+			: ba11-cust-license-2
+			: ba11-cust-license-3
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{A3864FFF-2FD4-4997-A416-CBDC7726076E}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{D2218D14-7DA7-430E-939A-C2625ACF3A15}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: TCP-5280-5281
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{29FBA5A6-8C91-471B-89FF-1688DF0308F7}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba11
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{7235CBF5-F879-4FAD-A3EE-7555C7B1F99D}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (40)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{48B3700B-C935-406A-8170-398EA1C8292D}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{959480E8-A06D-45DE-9AC8-ACDFD52667E2}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4ED5DF2-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{0D8EB579-A239-4475-972A-408A30328C5D}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: sjdrut01
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{314461E7-B60E-4D13-92D4-A1D284978647}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:name ("##Config Backups")
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{FB0B9F90-AFB0-4BB1-862E-8B9ED2C6049F}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{90F4E29F-1F71-4EBA-B041-1E6CE04CB9EC}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba-vpn-mg
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{FD93DD3F-1F01-4F23-B9A5-3205144C2001}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (41)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{678DA7AE-DE32-4085-9A9B-745D1EEB3EE7}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{1D124928-8366-4D93-B8B4-4F0E994F29DE}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{9FC82297-D3C2-4345-A38B-7380C91E038B}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{332C817D-6DA0-453A-851E-7A7E96D92CB4}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ba12ut01
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{D37C1B9B-CDB6-48C6-AD5F-E1AD95108E13}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{35600D6E-B61B-469C-8943-F8F0991277BE}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{6CA8930D-1705-4228-9201-9E774502A9D9}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: BA12-dhcp-pool
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{EBA96F49-E6EF-4EC1-A394-42509580CE92}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (42)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{3B59F90C-56BC-490B-AAF5-19E02D20EF74}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{23DE825A-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("intersect with user database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{23DE8A20-6169-11D7-9270-9E8C8063B6B6}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("intersect with user database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23DEA118-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba0
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23DEAF5A-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23DEBC98-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23DECCEC-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm0@Any
+					:AdminInfo (
+						:chkpf_uid ("{00119458-4C9B-45AE-8A9E-052521640597}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAE96F6-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (43)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{3363D810-B564-4FEA-AB40-2888E758D87C}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{23DF61B6-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (24)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (10)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("ignore user database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (50)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("intersect with user database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23DF8678-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba0
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23DF949C-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23DFA1C6-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23DFB080-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm0@Any
+					:AdminInfo (
+						:chkpf_uid ("{0C567227-A0B8-4064-859D-9D2E2EB0A76B}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAF3688-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (44)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{24A3A867-B741-4559-8B26-AFECBEAAAC73}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{23E03E88-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{23E0463A-6169-11D7-9270-9E8C8063B6B6}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23E05CE2-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23E06AC0-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23E0779A-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23E0880C-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-site@Any
+					:AdminInfo (
+						:chkpf_uid ("{1F8C6CFA-1BEE-432E-A5A3-52390716B4A4}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CAFCF76-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (45)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{942910D7-1BD7-4973-9857-3A7241C661C9}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{23E11DD0-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (24)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (10)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("ignore user database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (50)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("intersect with user database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23E141D4-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23E15034-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23E15D90-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23E16C4A-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-site@Any
+					:AdminInfo (
+						:chkpf_uid ("{B376C8BC-B7CB-4A39-ABFF-2636842D8276}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CB06F8A-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (46)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{A5DFEFBF-82A9-4292-A692-5526BA444A25}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{2F1EAA86-6FE8-448A-B2EF-F2660D80EEE3}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{23E0463A-6169-11D7-9270-9E8C8063B6B6}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{8EE614D1-3214-4518-8814-CBC87A801E87}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-chm1-training
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{06AAB75C-4E6B-4735-B3AB-94D2044EB193}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{B694FF33-56B8-400C-BC70-831ACE93774B}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{3BCBE8D2-2F62-40F2-8A5F-114511F63E5F}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm1@Any
+					:AdminInfo (
+						:chkpf_uid ("{54DF0B3F-DC22-42B0-BC92-84E13A61EFFF}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{7578B46D-43AE-495C-9869-E43245C4846E}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (47)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{668328FB-DFE3-40AA-80D8-485B8F5B00C3}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{EE4314AE-8796-4D99-AB5F-9F57F88C4CCB}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (24)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (10)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("ignore user database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (50)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("intersect with user database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{AE8657C5-1CD9-4928-9E5A-A65EEE493F8B}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-chm1-training
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{918D6305-F841-41F3-87A0-9559161C72C9}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{E97DFC25-D079-4FA8-AD03-5970C4627619}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{D3B15547-5D60-4AA1-9044-7ADBC13EAE72}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm1@Any
+					:AdminInfo (
+						:chkpf_uid ("{FC6FF193-066E-4DDA-B0DA-55A480F23BD3}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{3A953818-DBEC-4B0B-A37C-1D94DA22ABE0}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (48)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{213746BC-3D9B-4790-998D-A9FDEA687DDC}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{FBC8E4E3-C854-42CE-AC19-6676A6859534}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{23E0463A-6169-11D7-9270-9E8C8063B6B6}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{1F0C7B09-75B1-4FEF-AE3C-0776B407028C}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba2
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{884747DF-7BC7-425A-B42E-8AD43C6AB17D}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{76CEFA12-BCAE-4684-BC08-4C13FCB481B7}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{5454AAEB-22A4-4B20-A656-712EE60C56EF}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm2@Any
+					:AdminInfo (
+						:chkpf_uid ("{89721761-8BC4-4C0A-A993-A13698C3B71E}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{0D9108C2-A8BC-4AF6-8317-DAE990BD749B}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (49)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{C25E48E8-FB37-4379-8705-E82FAD968EAA}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{5C1BE6BD-8FAA-48BE-9D24-6171AEFF462F}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (24)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (10)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("ignore user database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (50)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("intersect with user database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{54756CB1-7A7E-4E21-B0CB-54BACFE74DF7}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba2
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{9C344123-EB29-4E41-123B4-424840110A8D}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{C70AC04D-FA42-45B2-8A7F-FAA81298B997}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: exceed
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{02B4684D-05FE-43FE-8961-743B961CE080}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm2@Any
+					:AdminInfo (
+						:chkpf_uid ("{BAE0F513-E336-439A-B285-4CB9385EC99C}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{F4BA7B6A-A749-464C-BCC6-ACC9B8E1655D}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (50)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{E2AD8131-CAD1-4B18-9FEB-79358AC46DE5}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{79A0BCC2-9672-40FE-B143-FDF783CCD43D}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{23E0463A-6169-11D7-9270-9E8C8063B6B6}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{B2722CF8-C140-4317-8BA7-A8865E063344}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba3
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{9A0CEC10-2297-4F61-1239C-C2E32B3CBA4E}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{5D97D970-0CDD-46BC-9004-CB6BBCEE47F6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{57462C13-A25A-4C1A-B221-4E12679D8665}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm3@Any
+					:AdminInfo (
+						:chkpf_uid ("{82B6F45A-4CC1-4B81-BF7D-B4D42BCE6FE3}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{21A4DB78-8B9B-42C0-ABAE-5B183F5BFA65}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (51)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{9AE8CFFE-CCF4-47EB-A537-E9D814848E91}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{568666E9-C4B8-4974-83CB-C831F5A96B35}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (24)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (10)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("ignore user database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (50)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("intersect with user database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{5E814DB2-3750-4F76-B66F-E9B0B55EB2CD}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba3
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{7788932E-7708-4090-1234C-2A4728C2D124}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{2B2AB917-AA34-4377-96B3-0E412A0B56CF}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{02E99085-AB1F-4ED4-8CC2-3854C945F9F2}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm3@Any
+					:AdminInfo (
+						:chkpf_uid ("{DCC2782B-F9C3-4C32-A494-E655CDF7557D}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{801A8F72-DD9D-4AFA-A907-DCDD5D64C6AC}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (52)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{93A5CEC1-0BB3-4C7B-ACFC-D3C7CC3B9189}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{E96B6CB9-0653-47C1-BCFB-B83699B0CFE2}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{23E0463A-6169-11D7-9270-9E8C8063B6B6}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{7CB008D1-3C47-47A1-AB56-C58E1C2047C7}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba4
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{A35E637D-EA9E-4AA5-B1E4-92FC40C6CF09}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{C9789CBA-D832-4733-86D8-95D089146C11}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{48F213FC-1CF6-4E39-8433-7016F12F7AF6}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm4@Any
+					:AdminInfo (
+						:chkpf_uid ("{AD436C78-0204-47DE-AC1C-8D7319B46C2C}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{6606EBAD-778A-4ECD-947B-E01BF1C622B2}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (53)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{8AD84D73-A6C2-418F-A419-34B51DD9CA92}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{2FDD2535-93CF-4A23-8DE5-726406D11095}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (24)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (10)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("ignore user database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (50)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("intersect with user database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{130CBB58-17D6-49DB-8F38-E6EC0F720A1F}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba4
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{46ED5FAB-8BE7-4B2C-ACA2-674483AA0869}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{93F7F310-A796-439A-9671-83FCC3484A37}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{6E9BFCBB-C3E6-4979-9AFA-973FEC66AED7}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm4@Any
+					:AdminInfo (
+						:chkpf_uid ("{D2022512-96FE-4CEA-843F-0518776EE57D}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{D7A4AF4F-FAE9-4F7E-A23C-372B6FED6CE0}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (54)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{A5E0294A-55F8-4ECD-931B-9AD5F9602C5F}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{7D0AFD78-9C9E-4613-9E85-9C9510EC386E}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{23E0463A-6169-11D7-9270-9E8C8063B6B6}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{A09B81CA-2D31-4A36-A5FF-D97823E37771}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba5
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{6F1B465B-D9B8-46E2-ADCD-F088A4450FCF}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{61DC3F78-65C2-4E42-A0F8-12B4F3E78522}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{0B32F427-BC1B-456E-ADF0-3A3C98B51761}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm5@Any
+					:AdminInfo (
+						:chkpf_uid ("{478D3CEF-2E6D-4499-BB12-30CF69F92F74}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8212F844-F48C-4C8C-ACE2-BBA4D2C8D620}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (55)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{B597F7DE-1645-4A5A-8445-1BDD80C3186B}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{8640EB3A-CC04-401B-BF0F-5BC7E25E247F}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (24)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (10)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("ignore user database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (50)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("intersect with user database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{0A1EE5FD-C541-438E-AEC1-1F4A994D92E4}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba5
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{BB2F8320-DC14-4467-B396-E45C1D416148}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{227038F2-7024-453D-8437-AA8FC792D9B8}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{F4519997-C673-4CE6-A680-3A00C2676121}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm5@Any
+					:AdminInfo (
+						:chkpf_uid ("{92F9E1C3-E004-4B94-9D66-E67354166985}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{A9AED8F8-4B33-460E-B5AD-C87E15C218F5}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (56)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{42B5B598-714B-41D9-8E5A-F716F6A86747}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{58199BC0-86AB-4F3E-9436-4C7DD833D944}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{23E0463A-6169-11D7-9270-9E8C8063B6B6}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{E1073FBB-01A7-43DB-8F80-A87D82F69CB3}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba6
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{46127F3D-B834-41B4-81B9-7D91AF92CC82}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{149D3B1B-18AE-4429-8F07-49E98D9F47CF}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{07D936A6-8208-44C0-9787-E720EF07BCBC}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm6@Any
+					:AdminInfo (
+						:chkpf_uid ("{8A4A1253-6ABB-4031-BEE9-38027729AE25}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{B490B98C-E48E-42FA-98D4-B50C07B9B26A}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (57)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{B9DC19E4-213D-4D9D-974B-CF4BC4D56DFE}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{226FBCB5-8828-4CB0-A601-862A679E43C5}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (24)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (10)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("ignore user database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (50)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("intersect with user database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{AD9BF5DF-8386-46B2-82DC-D9791E11EBF6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba6
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{5D194742-03F0-4B91-89F7-E8846D9BC998}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{176268E1-B29C-47CF-9940-E1AE5072A993}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: exceed
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{A06F2FDF-7029-483F-84AA-155B0051298F}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm6@Any
+					:AdminInfo (
+						:chkpf_uid ("{1867E206-6DC8-4AB4-9DAA-D5EAC419962D}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{ADBFF1E1-1353-4DB0-9185-E3280CD3E1A9}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (58)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{8F87D513-A82E-4502-8F54-B6CA1F50E9DB}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{524567EF-5516-41D5-928E-77C483DE40BD}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{A51E62AE-AE5B-49A4-9AAF-98C6F89C021C}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{91B18A55-DD17-4AF3-BC32-2545E24CDE00}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba7
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{19244E5E-59DB-47D0-BD07-FDE79B8090DD}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{4D04722E-9C17-46D6-8366-4CE0882F57E5}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{40CD0AAB-6A5F-42A3-9812-2A858C7D2C3E}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm7@Any
+					:AdminInfo (
+						:chkpf_uid ("{AC2F89B0-2F9D-4ED4-B009-47CC6356CF60}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{C3BAF221-A9E5-4D6D-BDE2-6D8D8A12BD31}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (59)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{BA0E55E7-8C1C-4F3A-84AF-707DB426AED8}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{DB98065B-4440-4446-88CB-A9E9B8B928C4}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (0)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (30)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("Intersect with User Database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (5)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("Intersect with User Database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{AC1C3994-5124-45EE-865A-984D4E3EFF7C}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba7
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{BCB87364-B6EC-4139-9C03-7C757A470048}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{D712F47F-2E42-48E5-B213-977933FF701F}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{A2CAF0D7-3F01-40A4-ADCE-283A76295231}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm7@Any
+					:AdminInfo (
+						:chkpf_uid ("{2261C5B2-43F2-433C-966A-A262FC13DF51}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8F83A1FF-F08A-4641-AFF6-FB277AFB9D40}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (60)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{B0CC6C3D-1216-4FD5-AFBA-B4F8EB772113}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{D57D9C42-4B7F-48FF-8404-E5F33FE4E4A1}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{30EEDAB0-6754-4C23-8A31-E2E75C013398}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{748C07DA-049C-469B-9183-897F2E7441C7}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba8
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{3E0DBDD6-51EE-41FB-8A3E-17540A7E7AFF}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{6A05DBD4-7039-46D9-A70D-7A1E1864566A}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{DB252F66-B23A-478B-82CA-3FB8012C3910}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm8@Any
+					:AdminInfo (
+						:chkpf_uid ("{EF87B591-651A-40A6-AF21-06C9528DA3D6}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{86F4899C-BE8C-422F-865E-CFC73CA63642}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (61)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{720195EA-957D-4B86-BC79-E23AB2F8D8D9}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{996EC8A6-18C6-46B4-A580-EA4C2A137170}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (0)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (30)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("Intersect with User Database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (5)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("Intersect with User Database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{2F72C0C8-6921-408C-A471-3D162F11698E}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba8
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{E299E1B6-8584-4FC3-8CB9-F140D1D21B17}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{8372D6FE-AE47-4ED0-91B0-3D42FB9CF93C}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: exceed
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{28DBAF64-8267-4C5E-A5FC-17092BC6EF9B}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm8@Any
+					:AdminInfo (
+						:chkpf_uid ("{F555D4CE-2614-4B56-BC65-BFF9DC7B9754}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{333BD027-2E25-45E2-AC2D-5138CFE99DE8}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (62)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{09E48928-D9DB-4089-8A41-F5A38D6ABD04}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{C534CCA3-79FF-4F84-9182-0A04B1BDEAE6}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{52A698AC-053F-42EB-827D-40CA19890BE0}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{596F7653-6A13-4D0E-8D82-9D4C06DA2136}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba9
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{AFAC2872-976B-49E1-843B-A790F995430B}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{2579718B-F783-4D08-BFD8-5C65934EBD9E}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{8086B5BC-B0D2-470A-82F1-23CFCF3B2EF2}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm9@Any
+					:AdminInfo (
+						:chkpf_uid ("{F37B847E-8B26-4E28-BBD9-DECD71E85AFE}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{BA0CEB05-D1DF-48D4-98D0-CD522B78C718}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (63)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{A46AB7F8-5E68-4665-93C9-E28CB5DE108F}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{B9690B1E-4CBE-42CF-914E-E5A60011805C}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (0)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (30)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("Intersect with User Database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (5)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("Intersect with User Database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{D7A3C9D4-CE62-45E8-B21E-AC09FF3B23FE}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba9
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{6A6001AB-DE13-413E-981F-75C15841927B}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{ACED126E-E5E5-4A9E-B8F7-F1381DE8D4B0}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{A8C830CC-5BFA-4801-87FE-C9C31B71EA67}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm9@Any
+					:AdminInfo (
+						:chkpf_uid ("{0D400F04-AC84-491D-BD45-E1309C607ACF}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{A1F049E6-484E-40B2-96B2-83E483F5C498}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (64)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{16FA5D7F-7F7B-413B-8AE7-E6DC9771C799}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{1B8FC634-74DA-4D7A-9255-C619CAE710BE}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{3A9DE6D8-141D-4FAB-858A-D91F0BC9F905}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{28D8122A-8572-4B77-8F13-95993D3D85ED}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba10
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{DBCF5773-F153-4940-AEAE-8E78DBA089E1}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{461FCA45-0185-475C-B338-AC0E1B343D81}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{CE9A5A03-9636-4317-A281-96A2B60C7AFE}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm10@Any
+					:AdminInfo (
+						:chkpf_uid ("{9B86F5B2-9293-4D7C-A84C-B621A00EDB0D}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{E9861E0F-2EED-4E6B-A289-B62EFB939153}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (65)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{53E8C4FE-374C-4AE2-83CA-92E75473B4BC}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{5D887BA0-FC77-4498-9528-3EC9D25E4D3C}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (0)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (30)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("Intersect with User Database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (5)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("Intersect with User Database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{A8E3CBF3-3E0E-4A19-9265-66FED21751D4}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba10
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{55983FD3-3B7A-445C-A09A-FDAC81A7388B}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{9B9737D1-879D-404F-96E6-E9FE0055BEC7}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: exceed
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{6071EE58-E36D-4E62-BCEC-9813A3FCDEF0}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm10@Any
+					:AdminInfo (
+						:chkpf_uid ("{CF324CE7-361D-4436-BB7D-35DE15A3D8C1}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{B26F2D94-906F-472F-A8A8-7625C020855C}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (66)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{D50C5D96-EA7B-4F1E-982B-4BAE2D2FF9AF}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{DBED62C0-3AC3-4199-87F1-344CB36CC4EC}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{2E46835B-070D-458E-123E5-19933C98337D}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{3D016CD1-2C21-4CD5-B774-813721168040}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba11
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{FF9EBD91-676F-4840-9C16-052ACAB32723}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{E983EE66-2623-4906-BC22-08216DF3607B}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{A9C1AE68-7943-42A1-BCAA-0BF7B244ACA3}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm11@Any
+					:AdminInfo (
+						:chkpf_uid ("{2066B93A-B769-4520-8CFA-483A9958E454}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{DBBBD3D9-18E4-48AA-A6D6-4ADCF7673A72}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (67)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{B99AB898-92B2-4CAA-BB9C-AA6DDA9C6B83}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{5649C8EB-A096-4132-834D-0D42E046CA41}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (0)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (30)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("Intersect with User Database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (5)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("Intersect with User Database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{410D3052-8739-4A05-8A4A-0EA91EEB7E87}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba11
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{8C509768-5119-4282-B407-3FDDA9928C78}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{05A6E381-837A-4093-B62F-C0410AA6D0DF}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{8B19C02C-962D-4AAB-97AD-72C3376343E1}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm11@Any
+					:AdminInfo (
+						:chkpf_uid ("{751E47FE-7FDB-45DD-A9E1-EEDA712D6EFC}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{0BC0211F-6E2D-4919-A8D1-A67A9B164877}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (68)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{E54A983E-53EA-469E-A77E-2489BB5DF295}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{5B848760-3539-4809-8439-75BBE2CBC6D0}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{48D36935-70B1-4241-92F1-63644A1CA647}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{8F39ADBF-C237-4D46-A324-34DBBFD0C1AD}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba12
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{248D5C31-E847-4860-946E-C12801DE719B}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{CE7D2C7D-8407-4A57-A284-9B422EB6F99E}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{EBA80076-0B23-4654-BE92-E442B61B3F8C}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm12@Any
+					:AdminInfo (
+						:chkpf_uid ("{11A7C880-A202-4CF0-A056-E9A14C88FB41}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{4AA5D505-791B-4341-B544-B32B031CB0AB}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (69)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{80556D60-B28A-4162-B7C1-447415ED4BF9}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{DCB04F81-2185-4EA0-995A-53DC5317E825}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (0)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (30)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("Intersect with User Database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (5)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("Intersect with User Database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{8A944043-CB4B-44F1-BBC9-8CED668FD35D}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba12
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{505F0241-856F-4CBD-8303-959453C9A5B4}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{E756AEDB-6D8D-4AD4-8B18-E70AF285CBEB}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{F1A9D824-FBCB-4030-A7F9-443B3291F33E}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm12@Any
+					:AdminInfo (
+						:chkpf_uid ("{E160C044-3392-4DE0-AB6A-56DFACFD2AD3}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{FA6AFF74-E74E-4900-80AA-A3B26BDB81FB}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (70)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{719FB7AB-8E33-412E-BC24-8B6B4EE653CA}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{D6767257-65F6-46C3-9B50-E54610BBA65C}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{6F1CF2A0-C737-4707-970F-BF730CC6060A}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{3498BF93-57C0-46DB-A8A7-4CEDC9FAB227}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba13
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{65FA28AC-4858-4F26-8995-99C3115D2A3C}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{DC3DBD75-9E51-473A-8B53-357A64532291}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{2B472854-BD7E-4607-AC8D-B5DE56F09AC8}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm13@Any
+					:AdminInfo (
+						:chkpf_uid ("{E56815C2-A467-4522-BB29-F7F80B00CD09}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{60E07A5E-547C-41FA-B304-3EAEC678FB3F}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (71)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{2F82060D-4E36-4215-8230-9B5238CBB0C3}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{5CD20F10-97A5-4C12-AA0A-39ADCC2B6DEE}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (0)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (30)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("Intersect with User Database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (5)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("Intersect with User Database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{28551B35-DDA4-4992-BF5C-739A5DF51D39}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba13
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{D9A63B14-5D4C-4911-9B09-8BE9AB3CCC7B}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{96791174-29A7-4E05-87ED-8B854F47674B}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{81EB9F31-6263-41AB-B059-57F462748EE4}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm13@Any
+					:AdminInfo (
+						:chkpf_uid ("{866A29FC-77E5-44CB-B34C-311A42257D49}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{6432E490-E6E9-43F9-8601-F83507A61922}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (72)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{A75DA42D-31A7-4CA2-BC78-CBD1DA0048E8}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("User Auth"
+				:AdminInfo (
+					:chkpf_uid ("{2A148CC6-A8BE-4CF9-AF52-9A6C52E0CC8C}")
+					:ClassName (user_authenticate)
+					:table (setup)
+				)
+				:action (accept)
+				:dst_options ("Intersect with User Database")
+				:macro ()
+				:options (
+					:AdminInfo (
+						:chkpf_uid ("{C02CDF8B-7FB3-496D-B831-664D5C176F87}")
+						:ClassName (http_options)
+					)
+					:rule_auth_http_allow ("Allow Predefined Servers Only")
+				)
+				:src_options ("Intersect with User Database")
+				:type (auth_user)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{84097434-72A2-4854-BB96-9DCCC7C3533D}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba14
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{D7DDB6DB-4A8F-400C-BF20-7A28162F085E}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{9A34843C-13E9-454B-98AB-C6BAE2D392EA}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ftp
+			: telnet
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{93C2C77A-0D2A-4DDF-9356-8625CDF9D2A8}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm14@Any
+					:AdminInfo (
+						:chkpf_uid ("{99A928FB-DF72-48C0-9995-1557C0933890}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{43AC33D5-B1BF-4CFB-AC00-4E5475E3D5A7}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (73)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{03E81632-626D-4394-8D75-BC4D36B1866A}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: ("Client Auth"
+				:AdminInfo (
+					:chkpf_uid ("{1FB6B58F-509F-43F8-A1B1-108DBB59B348}")
+					:ClassName (client_authenticate)
+					:table (setup)
+				)
+				:accept_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:action (accept)
+				:clauth_refreshable (false)
+				:clauth_to_hours (0)
+				:clauth_to_infinite (false)
+				:clauth_to_minutes (30)
+				:clauth_track (Auth
+					:Name (Auth)
+					:format ()
+					:icon-name ()
+					:macro ()
+					:text-rid (0)
+					:type (log)
+				)
+				:dst_options ("Intersect with User Database")
+				:enforce_desktop_config (false)
+				:macro (PASS_CLNTAUTH)
+				:ruletype ("standard sign on")
+				:sessions (5)
+				:sessions_infinite (false)
+				:signon_method ("manual sign-on")
+				:src_options ("Intersect with User Database")
+				:type (auth_client)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{782E0B3D-28BD-4204-B0FC-893D8890A97B}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba14
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{A69A38E0-42D6-42DE-B5C5-076A63E3294C}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{4CC7FE0F-937F-4B88-9D58-23BF6DC04216}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: citrix-group
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{69B67627-6358-48C0-9D6B-D407EA087103}")
+				:ClassName (rule_source)
+			)
+			:compound (
+				: (usr-chm14@Any
+					:AdminInfo (
+						:chkpf_uid ("{3A857136-5A86-4AA0-A656-DB3B6EB262E9}")
+						:ClassName (rule_user_group)
+					)
+					:at (Any
+						:color (Blue)
+					)
+					:color (black)
+					:type (usrgroup)
+				)
+			)
+			:op ()
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{ABDEBDDE-2F6D-4290-95D9-48A62C6BD8ED}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (74)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{B8A775DB-2D68-4615-B61E-2E5E0D4AFB8A}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{23EE99CE-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4EFF0A8-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23EEA982-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-ids
+			: i-b-cba01td
+			: dlp-objaba
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23EEB79C-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23EEC50C-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-3389
+			: ssh
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23EED3BC-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: Fw-Access-Group
+			: egee
+			: gemweb
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CB41842-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (75)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{63F3EDDC-83D4-405C-952D-1A0FF997DEAA}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{B8A5640D-B75D-4B87-B89F-5F68BBFF2280}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F00110-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{AB67ABF2-7093-4C94-A45A-953F67DADF69}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: dlp-objaba
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{840FED71-0896-4A5B-A8EA-593BDB4C7549}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{C4B2E46D-208D-47FC-8ED2-C0E536721ED7}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-8100
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{EA7481AF-63A7-42F3-B9DC-C84906853CF9}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: dlp-mgr
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{D5DB461A-EF2E-4D03-9785-66E4A151404E}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (76)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{AF42FCFD-C3CE-4812-93BC-BEA152292E71}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{91CAEF4A-32E6-496C-82A8-BCD5DCE3F118}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F010E2-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{03BFD8BD-E9BC-42EE-84EE-DCDA0459D5E6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-vpn-mg
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{CC8BF394-C6DA-491E-9B34-F3409559F039}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{98FF5A81-9FBA-47D5-12301-73D716A5F0FF}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: http
+			: snmp
+			: ftp
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{A363E980-52A7-4391-A102-A00FE6FA581B}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: COMPA-Net-Group
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CB590DC-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (77)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{FEE19282-77ED-4048-9763-FA15B2F773AE}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{903E421B-6EE4-487C-AB83-8904E7DCF006}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F020A0-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{1A94D9F0-6BAB-406F-AC93-123AB18295A8B}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objaba-sslvpn-mg
+			: objaba-sslvpn-mg-sec
+			: objaba-sslvpn-vir
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{074A8DB4-66EB-4B62-A7D9-CF67B4B8ACAE}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{2707D825-37A2-4D83-8258-D2DBECA42025}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: tcp-8443
+			: ssh
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{3D615F01-27E3-454C-AE3A-F348E5426F6D}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: COMPA-Net-Group
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{6AB6CACD-2E1A-48EE-AB8D-D2E85EA44F5C}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (78)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{C8D1A6B6-25EE-4563-BD77-DE916DFAC3B1}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{C6E36B6F-C3D2-408B-8FBC-3851F7E744E6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F040EE-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{187C80DD-978D-4E14-B21B-240FB4D7A1B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: virtually-123
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{C2B95E27-CDEA-40CD-AE29-E523175ABF2A}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{CF0BFFFE-5C03-41F4-BDD6-C582208DA426}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: https
+			: ssh
+			: http
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{EABDC85C-3712-479F-9755-B57254BF9903}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: New-COMPA-Net-Group
+			: objayk-imera-int
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{C0CEC34C-B95D-4173-BD08-75ED0D317763}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (79)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{43943F50-DFFC-4CFB-A3C9-5E97782C7CD5}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{ED9DD835-D0F0-4498-857E-5A01158112DF}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F050DE-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{BD827856-B214-4BDF-9E28-B92617A1E202}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: objayk-imera-int
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{4966E57C-7EEB-46FC-8769-0F4B57E85AF6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{265D250B-546A-422A-BFE9-123C0F4C797C8}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: https
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{779C3AA6-8992-44E0-94F7-E5213DA27E2C}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: virtually-123
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{A5BBF24C-79D1-421E-BFC3-95D24D8BE367}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (80)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{E30C1D69-5B22-4DA0-8790-8027FC349478}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{327860DE-7F9D-4852-A66A-6A84A9C435C3}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F0607E-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{860B2D0C-ABC6-4EDE-8E71-96F8A570F9AD}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: sjdrut01
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{8A2DCC6D-16BD-406F-92B5-B6584319831D}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{234BDEC7-4EBB-4EE2-ACC3-4BFFB3A2D8ED}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ssh
+			: ftp
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{F648A339-E22C-4EAE-123B5-D254A920479F}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: virtually-123
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{43E9CA4A-44AA-41B2-ABE3-4E46D0325B5B}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (81)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{CC98A061-7190-41FC-8B16-0BA16F7F8C82}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{A2DACE0E-B764-48D9-9FFC-104FBFF6685D}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F0706E-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{83DCFB6E-9018-4AD7-B7A4-8B98CE8B8820}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ibc-sj01cls-lnx
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{D0D3492F-E7A9-4FEA-9D77-22F081C3847C}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{6B3B2243-E847-4639-86E5-1B692C026189}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ssh
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{54AFB0E8-ECF5-4E40-B89D-B854027415FB}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: virtually-123
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{53D31B31-5E4F-4451-B990-26143E2658E1}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (82)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{19E56D3E-72F4-4244-98B5-6F12F8CE6B9B}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{BC1D6BB0-C3B2-40CB-9CDD-587CAE6913E3}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F08018-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{1DBCAE8D-BFF7-49F4-841F-A94119257355}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: itsauth
+			: ba-dns
+			: its3
+			: its-bnglr1c1
+			: mailhub
+			: mailsj1-old
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{277E0A48-54B2-4B1E-9850-FC27D468F49F}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{B1BC7085-AAF7-49B4-AFF3-8A2A739D0789}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: dns
+			: ldap
+			: smtp
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{CFBF6AFC-30DF-45F5-99DE-2C75FC97E912}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: virtually-123
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{000EC40E-C103-4B6C-970E-26CD0823710C}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (83)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{E6516204-6CF1-48D9-920E-1FCF838DB750}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{AAA40C98-1232A-4845-BD5B-D683D5B32E8F}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F0908A-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{1987E262-A4AB-45E6-9411-F2A89F5167AE}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: ntp-bnglr
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{51F13CEF-5655-4C62-96BA-136793F50B51}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{0BDC17E3-977A-47B5-9DFF-0356FAFC4C92}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ntp
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{CB81A272-2B44-45AF-A600-A43C4F989DFA}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: objaba-sslvpn-mg
+			: objaba-sslvpn-mg-sec
+			: objaba-sslvpn-vir
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{0B41A4F3-C127-427C-A83E-833E4BD96A12}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (84)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{1B94039C-1A36-4294-8FDD-5D872448859A}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{094FD9BB-416A-446B-A6FB-7EAE87E32DFD}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F0A0A2-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:disabled (true)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{C8771E9C-AF12-4469-89D7-9BFECBDC066C}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: aaa-srvrs
+			: arcotsrvrs
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{205FB202-C765-476D-A0E7-1D22BE41C9B0}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{DC60307E-572F-46C4-86C7-EF1B839D229C}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: RADIUS
+			: radius1646
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{1A6EC49A-2320-477A-8BBD-FB44F21D087B}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: virtually-123
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{90453EA4-C831-4FE0-9EB0-4DB5D658B136}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (85)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{256A045B-D479-4A2B-A23F-7E7128853786}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (accept
+				:AdminInfo (
+					:chkpf_uid ("{23EFE4C8-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (accept_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F0B088-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro (RECORD_CONN)
+				:type (accept)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: None
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23EFF472-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23F002AA-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23F00FFC-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: ping-allow
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23F01EAC-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CB6102A-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (86)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{EA9578DA-AB0D-470B-9591-26B478B2F16D}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (drop
+				:AdminInfo (
+					:chkpf_uid ("{23F085EA-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (drop_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F0C01E-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro ()
+				:type (drop)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: None
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23F09512-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23F0A304-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23F0B074-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: NBT
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23F0BF1A-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CB689B0-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (87)
+	)
+	:rule (
+		:AdminInfo (
+			:chkpf_uid ("{FB9E822C-54C7-4994-90F1-53DB5C73FF5B}")
+			:ClassName (security_rule)
+		)
+		:action (
+			: (drop
+				:AdminInfo (
+					:chkpf_uid ("{23F1263A-6169-11D7-9270-9E8C8063B6B6}")
+					:ClassName (drop_action)
+					:table (setup)
+				)
+				:action ()
+				:identity_settings (
+					:AdminInfo (
+						:chkpf_uid ("{C4F0CFD2-7C9D-11E1-999C-9E8C8063FDFD}")
+						:ClassName (identity_action_settings)
+					)
+					:allow_ad_query (true)
+					:allow_captive_portal (true)
+					:allow_identity_agent (true)
+					:allowed_sources ("All Sources")
+					:redirect_to_captive_portal (false)
+					:require_packet_tagging (false)
+					:type (identity_action_settings)
+				)
+				:macro ()
+				:type (drop)
+			)
+		)
+		:disabled (false)
+		:global_location (middle)
+		:name ()
+		:time (
+			: (Any
+				:color (Blue)
+			)
+		)
+		:track (
+			: Log
+		)
+		:dst (
+			:AdminInfo (
+				:chkpf_uid ("{23F13544-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_destination)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:install (
+			:AdminInfo (
+				:chkpf_uid ("{23F1435E-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_install)
+			)
+			:compound ()
+			: Gateways
+		)
+		:services (
+			:AdminInfo (
+				:chkpf_uid ("{23F150A6-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_services)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:src (
+			:AdminInfo (
+				:chkpf_uid ("{23F1628A-6169-11D7-9270-9E8C8063B6B6}")
+				:ClassName (rule_source)
+			)
+			:compound ()
+			:op ()
+			: (Any
+				:color (Blue)
+			)
+		)
+		:through (
+			:AdminInfo (
+				:chkpf_uid ("{8CB70390-EFC4-11DB-9475-9E8C80638484}")
+				:ClassName (rule_vpn)
+			)
+			:compound ()
+			: (ReferenceObject
+				:Name (Any)
+				:Table (globals)
+				:Uid ("{1E9C6F14-6169-11D7-9270-9E8C8063B6B6}")
+			)
+		)
+		:unified_rulenum (88)
+	)
+)
