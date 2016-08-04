@@ -1,0 +1,92 @@
+############ Palo Alto ####  NAT POLICY    #############
+
+
+import xml.etree.cElementTree as ET
+import xmltodict
+
+
+# with open('C:\Personal\p_f\PAN-XML-1.xml') as g:
+gx = ET.ElementTree(file='G:\CM\Python Exercises\Project_F\PAN-XML-1.xml')
+gr = gx.getroot()
+grt = gr.tag
+gra = gr.attrib
+print grt
+print gra
+
+
+
+
+def natpolicy():
+    with open('G:\CM\Python Exercises\Project_F\PAN-XML-1.xml', 'rt') as f:
+        tree = ET.parse(f)
+        for node0 in tree.findall('.//devices/entry/vsys/entry/rulebase/nat/rules/entry'):
+            value = node0.get('name')
+            print 'rule: %s' % value
+        for node1 in tree.findall('.//devices/entry/vsys/entry/rulebase/nat/rules/entry/to/member'):
+            print 'Destination Zone: %s' % node1.text
+        for node2 in tree.findall('.//devices/entry/vsys/entry/rulebase/nat/rules/entry/from/member'):
+            print 'Source Zone: %s' % node2.text
+        for node3 in tree.findall('.//devices/entry/vsys/entry/rulebase/nat/rules/entry/source/member'):
+            print 'Source Address: %s' % node3.text
+        for node4 in tree.findall('.//devices/entry/vsys/entry/rulebase/nat/rules/entry/destination/member'):
+            print 'Destination Address: %s' % node4.text
+        for node5 in tree.findall('.//devices/entry/vsys/entry/rulebase/nat/rules/entry/service'):
+            print 'Services: %s' % node5.text
+        for node6 in tree.findall('.//devices/entry/vsys/entry/rulebase/nat/rules/entry/source-translation'):
+            print u'Translation: {0:s}'.format(node6.tag)
+        for node7 in tree.findall(
+                './/devices/entry/vsys/entry/rulebase/nat/rules/entry/source-translation/dynamic-ip-and-port/translated-address/member'):
+            print 'Translated address: %s' % node7.text
+
+
+natpolicy()
+
+
+############ Palo Alto ####  Security POLICY    #############
+
+def securitypolicy():
+    with open('G:\CM\Python Exercises\Project_F\PAN-XML-1.xml', 'rt') as f:
+        tree = ET.parse(f)
+        d0=[]
+        for node0 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry'):
+            d0.append(node0.get('name'))
+        d1=[]
+        for node1 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry/from/member'):
+            d1.append(node1.text)
+           # print d2
+        d2=[]
+        for node2 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry/to/member'):
+            d2.append(node2.text)
+        d3=[]
+        for node3 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry/source/member'):
+            d3.append(node3.text)
+        d4=[]
+        for node4 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry/destination/member'):
+            d4.append(node4.text)
+        d5=[]
+        for node5 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry/source-user/member'):
+            d5.append(node5.text)
+        d6=[]
+        for node6 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry/application/member'):
+            d6.append(node6.text)
+        d7=[]
+        for node7 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry/service/member'):
+            d7.append(node7.text)
+        d8=[]
+        for node8 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry/action'):
+            d8.append(node8.text)
+        d9=[]
+        for node9 in tree.findall('.//devices/entry/vsys/entry/rulebase/security/rules/entry/log-setting'):
+            d9.append(node9.text)
+        d10=[]
+        for node10 in tree.findall(
+                './/devices/entry/vsys/entry/rulebase/security/rules/entry/profile-setting/group/member'):
+            d10.append(node10.text)
+
+        list1 = list(zip(d1,d2,d3,d4,d5,d6,d7,d8,d9,d10))
+        print list1[0][1]
+
+
+
+securitypolicy()
+
