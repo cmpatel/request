@@ -1,0 +1,56 @@
+inputFile = "G:\CM\Python Exercises\Project_F\IND-CFG-1.txt"
+outputFile = "./output.csv"
+
+fp = open(inputFile, 'r')
+a = "".join("".join(fp.readlines()).split())
+fp.close()
+
+import re
+
+p = re.compile(r':action(.*?):type\((?P<action>.*?)\)\)\)(.*?)'
+               r':dst\((?P<dest>.*?)\):install(.*?)'
+               r':services\((?P<services>.*?)\):src\((?P<source>.*?)\):through(.*?)'
+               r':unified_rulenum\((?P<rulenumber>\d+)\)')
+
+out = [obj.groupdict() for obj in p.finditer(a)]
+
+with open(outputFile, "w") as newfp:
+    for i,x in enumerate(out):
+        try:
+            if x["dest"].split(':op()')[1]:
+                dest = x["dest"].split(':op()')[1]
+
+            if x["services"].split(':op()')[1]:
+                services = x["services"].split(':op()')[1]
+
+            if x["source"].split(':op()')[1]:
+                src = x["source"].split(':op()')[1]
+
+            if x["rulenumber"]:
+                rulenumber = x["rulenumber"]
+
+            if x["action"]:
+                if "type" in x["action"]:
+                    action = x["action"][x["action"].rfind(":type(")+len(":type("):]
+                else:
+                    action = x["action"]
+
+        except IndexError:
+            pass
+            newfp.write("{0},{1},{2},{3},{4}\n".format(rulenumber,src, dest, services, action))
+       # writer = csv.DictWriter(newfp, fieldnames=["stuff1", "stuff2", "stuff3"], delimiter=';')
+       # writer.writeheader()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
