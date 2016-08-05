@@ -1,0 +1,33 @@
+import base64
+import requests
+import getpass
+import json
+
+outputFile1 = "./outputreports.json"
+
+username = raw_input("Username:")
+#username = "chintan.patel.cp1@roche.com"
+
+password = getpass.getpass(prompt="Password:")
+#password = "P@ssw0rd"
+
+date = raw_input("Date:")
+#date = "2016-05-25"
+
+UserPass = [username,password]
+JoinUP = ":".join(UserPass)
+encode = base64.b64encode(JoinUP)
+Auth = " Basic " + encode
+
+
+##########    Reports URL   ######
+
+ReportsURL = "https://sj-dmz-test/api/reports?date=" + date
+r1 = requests.get(ReportsURL, headers={"Authorization": Auth}, verify=False)
+
+with open(outputFile1, "w") as new:
+    if r1.status_code != 200:
+        print('Status:', r1.status_code, 'Problem with the request. Exiting.')
+    else:
+        new.write(str(r1.json()))
+
