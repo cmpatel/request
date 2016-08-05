@@ -1,0 +1,33 @@
+
+import base64
+import requests
+import getpass
+
+outputFile2="./outputpatientdata.txt"
+
+username = raw_input("Username:")
+#username = "CMStandard10@roche.com"
+
+password = getpass.getpass(prompt="Password:")
+#password = "P@ssw0rd"
+
+date = raw_input("Date:")
+#date = "2016-03-18"
+
+UserPass=[username,password]
+JoinUP = ":".join(UserPass)
+encode = base64.b64encode(JoinUP)
+Auth = " Basic " + encode
+
+
+ ##########    Patients URL   ######\n
+
+PatientURL = "https://sj-dmz-test/api/patients?date=" + date
+r2=requests.get(PatientURL, headers={"Authorization": Auth}, verify=False)
+with open(outputFile2,"w") as new:
+    if r2.status_code != 200:
+        print('Status:', r2.status_code, 'Problem with the request. Exiting.')
+    else:
+        new.write(str(r2.json()))
+
+
